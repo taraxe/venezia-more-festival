@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ParseUI
 import Parse
 
 class ArtistViewController: UIViewController {
@@ -16,28 +17,39 @@ class ArtistViewController: UIViewController {
             updateUI()
         }
     }
+
+    @IBOutlet weak var artistImage: PFImageView!
     
     func updateUI(){
         
-        
         if let slot = self.object {
-            
             let artist = slot["artist_id"] as PFObject
-            println(artist["name"] as String)
+            let name = artist["name"] as String
+            
+            title = name
+            
+            // load image
+            if let url = NSURL(string : artist["image"] as String) {
+                let qos = Int(QOS_CLASS_USER_INITIATED.value)
+                dispatch_async(dispatch_get_global_queue(qos, 0)){ _ in
+                    if url == NSURL(string : artist["image"] as String) {
+                        if let imageData =  NSData(contentsOfURL: url) {
+                            self.artistImage.image = UIImage(data : imageData)
+                            self.artistImage.loadInBackground()
+                        }
+                        
+                    }
+                    
+                }
+            }
+
         }
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        updateUI()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation

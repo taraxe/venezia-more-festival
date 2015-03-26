@@ -12,10 +12,12 @@ import Parse
 
 class SlotTableViewCell: PFTableViewCell {
 
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var artistImageView: PFImageView!
-    @IBOutlet weak var timeLabel: UILabel!
+
+//    @IBOutlet weak var artistNameLabel: UILabel!
+//    @IBOutlet weak var timeLabel: UILabel!
+//    @IBOutlet weak var artistImageView: PFImageView!
     
+    @IBOutlet weak var artistImageView: PFImageView!
     var object :PFObject? {
         didSet {
             updateUI()
@@ -25,14 +27,14 @@ class SlotTableViewCell: PFTableViewCell {
     func updateUI() {
         
         // reset UI 
-        artistNameLabel?.attributedText = nil
-        timeLabel?.attributedText = nil
-        artistImageView?.image = nil
-        
+//        artistNameLabel?.attributedText = nil
+//        timeLabel?.attributedText = nil
+          artistImageView?.image = nil
+//        
         if let slot = self.object {
-            
+//            
             let artist = slot["artist_id"] as PFObject
-            // load image
+//            // load image
             if let url = NSURL(string : artist["image"] as String) {
                 let qos = Int(QOS_CLASS_USER_INITIATED.value)
                     dispatch_async(dispatch_get_global_queue(qos, 0)){ _ in
@@ -46,15 +48,15 @@ class SlotTableViewCell: PFTableViewCell {
             
                     }
             }
-        
-            let formatter = NSDateFormatter()
-            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            timeLabel?.text = formatter.stringFromDate(slot["start"] as NSDate)
-            
-    
-            artistNameLabel?.text = artist["name"] as? String
+//
+//            let formatter = NSDateFormatter()
+//            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+//            timeLabel?.text = formatter.stringFromDate(slot["start"] as NSDate)
+//            
+//    
+//            artistNameLabel?.text = artist["name"] as? String
         }
-        
+//        
 
         
     }

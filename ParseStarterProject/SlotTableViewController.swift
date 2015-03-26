@@ -12,7 +12,7 @@ import ParseUI
 
 class SlotTableViewController: PFQueryTableViewController {
     
-    //var slots = [[Slot]]()
+    var slots = [NSDate : [PFObject]]()
     
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -26,7 +26,7 @@ class SlotTableViewController: PFQueryTableViewController {
         self.pullToRefreshEnabled = true
         self.paginationEnabled = true
         self.objectsPerPage = 50
-        //self.tableView.estimatedRowHeight = 82
+        //self.tableView.estimatedRowHeight = 97
     }
     
     override func queryForTable() -> PFQuery! {
@@ -57,21 +57,43 @@ class SlotTableViewController: PFQueryTableViewController {
 //        //TODO
 //    }
     
+    override func objectsDidLoad(error: NSError!) {
+        super.objectsDidLoad(error)
+        println(objects.count)
+        //slots.removeAll(keepCapacity: false)
+        //for object in objects {
+        //}
+        //tableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Date \(section)"
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 3//slots.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("HIT")
-//        var destination = segue.destinationViewController as? UIViewController
-//        if let navCon = segue.destinationViewController as? UINavigationController {
-//            destination = navCon.visibleViewController
-//        }
-//        
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "ShowArtist":
+                let cell = sender as SlotTableViewCell
+                if let indexPath = tableView.indexPathForCell(cell) {
+                    if let artistViewController = destination as? ArtistViewController {
+                        artistViewController.object = cell.object
+                    }
+                }
+            default:
+                break
+            }
+        }
+//
 //        switch (segue.identifier, segue.destinationViewController) {
 //        case let (i, d as ArtistViewController) where i == "ShowArtist":
 //            if let cell = (sender as? SlotTableViewCell) {

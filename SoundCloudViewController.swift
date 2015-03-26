@@ -17,7 +17,7 @@ class SoundCloudViewController: UIViewController {
         super.viewDidLoad()
         
 
-        let webURL = NSURL(string: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/43560465&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true")
+        let webURL = NSURL(string: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/43560465&amp;hide_related=true&amp;show_comments=true&amp;show_reposts=false&amp;visual=true")
         let urlRequest = NSURLRequest(URL: webURL!)
         webView.loadRequest(urlRequest)
 
