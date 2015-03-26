@@ -18,6 +18,10 @@ class SlotTableViewCell: PFTableViewCell {
 //    @IBOutlet weak var artistImageView: PFImageView!
     
     @IBOutlet weak var artistImageView: PFImageView!
+    
+    @IBOutlet weak var artistNameLabel: UILabel!
+    
+    
     var object :PFObject? {
         didSet {
             updateUI()
@@ -27,7 +31,7 @@ class SlotTableViewCell: PFTableViewCell {
     func updateUI() {
         
         // reset UI 
-//        artistNameLabel?.attributedText = nil
+        artistNameLabel?.attributedText = nil
 //        timeLabel?.attributedText = nil
           artistImageView?.image = nil
 //        
@@ -54,7 +58,7 @@ class SlotTableViewCell: PFTableViewCell {
 //            timeLabel?.text = formatter.stringFromDate(slot["start"] as NSDate)
 //            
 //    
-//            artistNameLabel?.text = artist["name"] as? String
+            artistNameLabel?.text = artist["name"] as? String
         }
 //        
 
