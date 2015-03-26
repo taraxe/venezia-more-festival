@@ -152,37 +152,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-y5-dcy" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="325"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="246"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="325" id="ChE-Mf-2iI"/>
-                                    <constraint firstAttribute="width" constant="600" id="N3V-vi-Ykl"/>
+                                    <constraint firstAttribute="height" constant="246" id="RCN-46-Hga"/>
+                                    <constraint firstAttribute="width" constant="600" id="uxE-IG-2r0"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uxE-IG-2r0"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="v3P-y5-dcy" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" id="64G-wY-63H"/>
+                            <constraint firstAttribute="trailing" secondItem="v3P-y5-dcy" secondAttribute="trailing" id="ADN-R9-4kT"/>
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" constant="-16" id="MRU-dC-RM3"/>
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" constant="-16" id="Mxm-1n-rmY"/>
+                            <constraint firstItem="v3P-y5-dcy" firstAttribute="top" secondItem="t4g-lG-buU" secondAttribute="top" id="QNf-Zr-pde"/>
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="top" secondItem="CDV-Rl-Bnk" secondAttribute="bottom" constant="-64" id="aDT-qg-vSe"/>
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="trailing" secondItem="t4g-lG-buU" secondAttribute="trailingMargin" constant="16" id="bXG-lm-49w"/>
+                            <constraint firstItem="v3P-y5-dcy" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leading" id="cwc-0l-ZJ2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v3P-y5-dcy" secondAttribute="trailing" constant="-16" id="fke-wb-ktD"/>
+                            <constraint firstItem="v3P-y5-dcy" firstAttribute="top" secondItem="CDV-Rl-Bnk" secondAttribute="bottom" constant="-7" id="iPj-dO-ipv"/>
+                            <constraint firstItem="v3P-y5-dcy" firstAttribute="trailing" secondItem="t4g-lG-buU" secondAttribute="trailingMargin" constant="16" id="qyG-YK-471"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="64G-wY-63H"/>
+                                <exclude reference="MRU-dC-RM3"/>
                                 <exclude reference="Mxm-1n-rmY"/>
+                                <exclude reference="aDT-qg-vSe"/>
                                 <exclude reference="bXG-lm-49w"/>
+                                <exclude reference="fke-wb-ktD"/>
+                                <exclude reference="iPj-dO-ipv"/>
+                                <exclude reference="qyG-YK-471"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Artist" id="rNA-4G-3ji"/>
                     <connections>
-                        <outlet property="artistImage" destination="v3P-y5-dcy" id="gcw-zA-5PW"/>
+                        <outlet property="artistImage" destination="v3P-y5-dcy" id="Jq1-kx-sXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BR-sh-zJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="-1516"/>
+            <point key="canvasLocation" x="3135" y="-1513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hf5-Rz-A2x">

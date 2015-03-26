@@ -17,7 +17,7 @@ class ArtistViewController: UIViewController {
             updateUI()
         }
     }
-
+    
     @IBOutlet weak var artistImage: PFImageView!
     
     func updateUI(){
