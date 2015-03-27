@@ -42,8 +42,7 @@ class SlotTableViewController: PFQueryTableViewController {
         super.viewDidLoad()
                 // Do any additional setup after loading the view, typically from a nib.
         //tableView.estimatedRowHeight = tableView.rowHeight
-        //tableView.rowHeight = UITableViewAutomaticDimension
-
+        tableView.rowHeight = 75 + 16
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
@@ -52,26 +51,62 @@ class SlotTableViewController: PFQueryTableViewController {
         return cell
     }
     
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        //TODO
-//    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return slots[dateForSection(section)]?.count ?? 0
+    }
+    
+    private func dateForSection(section:Int) -> NSDate {
+        let dates:[NSDate] = Array(slots.keys).sorted({ $0 < $1 })
+        return dates[section]
+    }
     
     override func objectsDidLoad(error: NSError!) {
         super.objectsDidLoad(error)
-        println(objects.count)
-        //slots.removeAll(keepCapacity: false)
-        //for object in objects {
-        //}
-        //tableView.reloadData()
+        
+        println( "\(objects.count) received from Parse" )
+
+        let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+        slots.removeAll(keepCapacity: false)
+        
+        // let fill the dictionary of days -> slots
+        for object in objects {
+            let slot = object as PFObject
+            let slotDate = object["start"] as NSDate
+            let day = cal.startOfDayForDate(slotDate)
+
+            if let prev = slots[day] { slots[day] = prev + [slot] }
+            else { slots[day] = [slot] }
+        }
+        println( "\(slots.count) after filtering" )
+        tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Date \(section)"
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "dd/MM"
+//        let sectionDate = dateForSection(section)
+//        println("For section \(section), date is \(sectionDate)")
+//        return formatter.stringFromDate(sectionDate)
+//    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as CustomHeaderCellTableViewCell
+        headerCell.backgroundColor = UIColor.cyanColor()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM"
+        let sectionDate = dateForSection(section)
+        println("For section \(section), date is \(sectionDate)")
+        headerCell.headerLabel.text = formatter.stringFromDate(sectionDate);
+        return headerCell
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3//slots.count
+        return slots.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -106,3 +141,12 @@ class SlotTableViewController: PFQueryTableViewController {
         
     }
 }
+public func <(a: NSDate, b: NSDate) -> Bool {
+    return a.compare(b) == NSComparisonResult.OrderedAscending
+}
+
+public func ==(a: NSDate, b: NSDate) -> Bool {
+    return a.compare(b) == NSComparisonResult.OrderedSame
+}
+
+extension NSDate: Comparable { }
