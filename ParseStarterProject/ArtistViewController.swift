@@ -20,13 +20,25 @@ class ArtistViewController: UIViewController {
     
     @IBOutlet weak var artistImage: PFImageView!
     
+    @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var placeLabel: UIButton!
+    
     func updateUI(){
+        bioLabel?.attributedText = nil
+        dateLabel?.attributedText = nil
         
         if let slot = self.object {
             let artist = slot["artist_id"] as PFObject
             let name = artist["name"] as String
+            let bio = artist["bio"] as String
+            let (start, end) = (slot["start"] as NSDate, slot["end"] as NSDate)
+            
             
             title = name
+            bioLabel?.text = bio
+            
+            
             
             // load image
             if let url = NSURL(string : artist["image"] as String) {
@@ -42,6 +54,11 @@ class ArtistViewController: UIViewController {
                     
                 }
             }
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "HH:mm"
+            dateLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
+
 
         }
     }

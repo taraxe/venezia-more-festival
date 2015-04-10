@@ -50,7 +50,7 @@ class SlotTableViewCell: PFTableViewCell {
             }
 
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "hh:mm"
+            formatter.dateFormat = "HH:mm"
             let (start, end) = (slot["start"] as NSDate , slot["end"] as NSDate)
             
             timeLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"

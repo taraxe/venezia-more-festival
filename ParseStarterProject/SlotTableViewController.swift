@@ -42,8 +42,9 @@ class SlotTableViewController: PFQueryTableViewController {
         super.viewDidLoad()
                 // Do any additional setup after loading the view, typically from a nib.
         //tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = 75 + 16
+//        tableView.rowHeight = 75 + 16
     }
+    
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("SlotCell", forIndexPath: indexPath) as SlotTableViewCell
@@ -58,6 +59,14 @@ class SlotTableViewController: PFQueryTableViewController {
     private func dateForSection(section:Int) -> NSDate {
         let dates:[NSDate] = Array(slots.keys).sorted({ $0 < $1 })
         return dates[section]
+    }
+    
+    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject! {
+        if let sectionSlots = slots[dateForSection(indexPath.section)] {
+            return sectionSlots[indexPath.row]
+        } else {
+         return nil
+        }
     }
     
     override func objectsDidLoad(error: NSError!) {
@@ -81,24 +90,22 @@ class SlotTableViewController: PFQueryTableViewController {
         tableView.reloadData()
     }
     
-//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "dd/MM"
-//        let sectionDate = dateForSection(section)
-//        println("For section \(section), date is \(sectionDate)")
-//        return formatter.stringFromDate(sectionDate)
-//    }
-    
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as CustomHeaderCellTableViewCell
-        headerCell.backgroundColor = UIColor.cyanColor()
-        
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd/MM"
         let sectionDate = dateForSection(section)
         println("For section \(section), date is \(sectionDate)")
         headerCell.headerLabel.text = formatter.stringFromDate(sectionDate);
         return headerCell
+    }
+
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRectZero)
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -128,17 +135,6 @@ class SlotTableViewController: PFQueryTableViewController {
                 break
             }
         }
-//
-//        switch (segue.identifier, segue.destinationViewController) {
-//        case let (i, d as ArtistViewController) where i == "ShowArtist":
-//            if let cell = (sender as? SlotTableViewCell) {
-//                d.object = cell.object
-//            }
-//            //            d.itemForDetail = item
-//        default:
-//            break;
-//        }
-        
     }
 }
 public func <(a: NSDate, b: NSDate) -> Bool {

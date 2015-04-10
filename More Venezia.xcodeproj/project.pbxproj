@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61883BE71AC604EA000DF783 /* MemoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */; };
 		61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */; };
 		61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */; };
+		61D88FAD1AD845E7000DD531 /* SlotsUISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */; };
 		61E77BC41AAA01C3005AAA68 /* SlotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E77BC31AAA01C3005AAA68 /* SlotTableViewController.swift */; };
 		61E77BC81AAA0312005AAA68 /* SoundCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */; };
 		61E77BCA1AAA03A2005AAA68 /* SlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E77BC91AAA03A2005AAA68 /* SlotTableViewCell.swift */; };
@@ -30,8 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCellTableViewCell.swift; sourceTree = "<group>"; };
+		61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotsUISplitViewController.swift; sourceTree = "<group>"; };
 		61E77BC31AAA01C3005AAA68 /* SlotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotTableViewController.swift; sourceTree = "<group>"; };
 		61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundCloudViewController.swift; path = ../SoundCloudViewController.swift; sourceTree = "<group>"; };
 		61E77BC91AAA03A2005AAA68 /* SlotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */,
+				61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */,
 				61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */,
 				61E77BC91AAA03A2005AAA68 /* SlotTableViewCell.swift */,
 				61E77BC31AAA01C3005AAA68 /* SlotTableViewController.swift */,
@@ -244,8 +250,10 @@
 				61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */,
+				61D88FAD1AD845E7000DD531 /* SlotsUISplitViewController.swift in Sources */,
 				61E77BC41AAA01C3005AAA68 /* SlotTableViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				61883BE71AC604EA000DF783 /* MemoriesCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
