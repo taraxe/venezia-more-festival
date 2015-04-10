@@ -8,7 +8,12 @@
 
 import UIKit
 
-class SlotsUISplitViewController: UISplitViewController {
+class SlotsUISplitViewController: UISplitViewController, UISplitViewControllerDelegate {
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        delegate = self
+    }
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
 
