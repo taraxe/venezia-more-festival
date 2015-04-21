@@ -14,11 +14,6 @@ class SlotTableViewController: PFQueryTableViewController {
     
     var slots = [NSDate : [PFObject]]()
     
-    override init!(style: UITableViewStyle, className: String!) {
-        super.init(style: style, className: className)
-    }
-    
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -29,7 +24,7 @@ class SlotTableViewController: PFQueryTableViewController {
         //self.tableView.estimatedRowHeight = 97
     }
     
-    override func queryForTable() -> PFQuery! {
+    override func queryForTable() -> PFQuery {
         var slotQuery = PFQuery(className:"Slot")
         slotQuery.includeKey("artist_id")
         slotQuery.includeKey("stage_id")
@@ -46,8 +41,8 @@ class SlotTableViewController: PFQueryTableViewController {
     }
     
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SlotCell", forIndexPath: indexPath) as SlotTableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SlotCell", forIndexPath: indexPath) as! SlotTableViewCell
         cell.object = object
         return cell
     }
@@ -61,7 +56,7 @@ class SlotTableViewController: PFQueryTableViewController {
         return dates[section]
     }
     
-    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject! {
+    override func objectAtIndexPath(indexPath: NSIndexPath!) -> PFObject? {
         if let sectionSlots = slots[dateForSection(indexPath.section)] {
             return sectionSlots[indexPath.row]
         } else {
@@ -71,27 +66,29 @@ class SlotTableViewController: PFQueryTableViewController {
     
     override func objectsDidLoad(error: NSError!) {
         super.objectsDidLoad(error)
-        
-        println( "\(objects.count) received from Parse" )
+        if let os = objects {
+            println( "\(os.count) received from Parse" )
+            
+            let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+            slots.removeAll(keepCapacity: false)
+            
+            // let fill the dictionary of days -> slots
+            for object in os {
+                let slot = object as! PFObject
+                let slotDate = object["start"] as! NSDate
+                let day = cal.startOfDayForDate(slotDate)
+                
+                if let prev = slots[day] { slots[day] = prev + [slot] }
+                else { slots[day] = [slot] }
+            }
+            println( "\(slots.count) after filtering" )
+            tableView.reloadData()
 
-        let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
-        slots.removeAll(keepCapacity: false)
-        
-        // let fill the dictionary of days -> slots
-        for object in objects {
-            let slot = object as PFObject
-            let slotDate = object["start"] as NSDate
-            let day = cal.startOfDayForDate(slotDate)
-
-            if let prev = slots[day] { slots[day] = prev + [slot] }
-            else { slots[day] = [slot] }
         }
-        println( "\(slots.count) after filtering" )
-        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as CustomHeaderCellTableViewCell
+        let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! CustomHeaderCellTableViewCell
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd/MM"
         let sectionDate = dateForSection(section)
@@ -125,7 +122,7 @@ class SlotTableViewController: PFQueryTableViewController {
         if let identifier = segue.identifier {
             switch identifier {
             case "ShowArtist":
-                let cell = sender as SlotTableViewCell
+                let cell = sender as! SlotTableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
                     if let artistViewController = destination as? ArtistViewController {
                         artistViewController.object = cell.object

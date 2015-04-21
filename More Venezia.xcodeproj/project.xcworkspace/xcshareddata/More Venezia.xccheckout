@@ -12,6 +12,8 @@
 	<dict>
 		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
 		<string>bitbucket.org:taraxe_dev/morevenezia.git</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>github.com:Haneke/HanekeSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>More Venezia.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
 		<string>../..</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>../../../HanekeSwift</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>bitbucket.org:taraxe_dev/morevenezia.git</string>
@@ -28,6 +32,14 @@
 	<string>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HanekeSwift</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

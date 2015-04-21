@@ -1,4 +1,4 @@
-//
+    //
 //  ArtistViewController.swift
 //  More Venezia
 //
@@ -9,16 +9,19 @@
 import UIKit
 import ParseUI
 import Parse
+import Haneke
 
 class ArtistViewController: UIViewController {
 
+    let cache = Shared.imageCache
+    
     var object :PFObject? {
         didSet {
             updateUI()
         }
     }
     
-    @IBOutlet weak var artistImage: PFImageView!
+    @IBOutlet weak var artistImage: UIImageView!
     
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -29,31 +32,36 @@ class ArtistViewController: UIViewController {
         dateLabel?.attributedText = nil
         
         if let slot = self.object {
-            let artist = slot["artist_id"] as PFObject
-            let name = artist["name"] as String
-            let bio = artist["bio"] as String
-            let (start, end) = (slot["start"] as NSDate, slot["end"] as NSDate)
+            let artist = slot["artist_id"] as! PFObject
+            let name = artist["name"] as! String
+            let bio = artist["bio"]as! String
+            let (start, end) = (slot["start"] as! NSDate, slot["end"] as! NSDate)
             
             
             title = name
             bioLabel?.text = bio
             
-            
-            
-            // load image
-            if let url = NSURL(string : artist["image"] as String) {
-                let qos = Int(QOS_CLASS_USER_INITIATED.value)
-                dispatch_async(dispatch_get_global_queue(qos, 0)){ _ in
-                    if url == NSURL(string : artist["image"] as String) {
-                        if let imageData =  NSData(contentsOfURL: url) {
-                            self.artistImage.image = UIImage(data : imageData)
-                            self.artistImage.loadInBackground()
-                        }
-                        
+            if let artistImg = self.artistImage {
+                
+                let imageURL = wrapWeServe((artist["image"] as! String), height: 300)
+                
+                if let url = NSURL(string: imageURL) {
+                    let fetcher = NetworkFetcher<UIImage>(URL: url)
+                    cache.fetch(fetcher: fetcher).onSuccess { image in
+                        UIView.transitionWithView(artistImg,
+                            duration:0.3,
+                            options: UIViewAnimationOptions.TransitionCrossDissolve,
+                            animations: { self.artistImage.image = image },
+                            completion: nil
+                        )
                     }
                     
+                } else {
+                    println("CANNOT CREATE URL : \(imageURL)")
                 }
             }
+            
+    
             
             let formatter = NSDateFormatter()
             formatter.dateFormat = "HH:mm"

@@ -9,10 +9,13 @@
 import UIKit
 import ParseUI
 import Parse
+import Haneke
 
 class SlotTableViewCell: PFTableViewCell {
     
-    @IBOutlet weak var artistImageView: PFImageView!
+    let cache = Shared.imageCache
+    
+    @IBOutlet weak var artistImageView: UIImageView!
     
     @IBOutlet weak var artistNameLabel: UILabel!
     
@@ -33,25 +36,30 @@ class SlotTableViewCell: PFTableViewCell {
         
         if let slot = self.object {
             
-            let artist = slot["artist_id"] as PFObject
+            let artist = slot["artist_id"] as! PFObject
             // load image
-            if let url = NSURL(string : artist["image"] as String) {
-                let qos = Int(QOS_CLASS_USER_INITIATED.value)
-                    dispatch_async(dispatch_get_global_queue(qos, 0)){ _ in
-                        if url == NSURL(string : artist["image"] as String) {
-                            if let imageData =  NSData(contentsOfURL: url) {
-                                self.artistImageView.image = UIImage(data : imageData)
-                                self.artistImageView.loadInBackground()
-                            }
+            let imageURL = wrapWeServe((artist["image"] as! String), height: 75)
             
-                        }
-            
-                    }
+            if let url = NSURL(string: imageURL) {
+                let fetcher = NetworkFetcher<UIImage>(URL: url)
+                //self.artistImageView.hnk_setImageFromURL(wrapped)
+                cache.fetch(fetcher: fetcher).onSuccess { image in
+                    UIView.transitionWithView(self.artistImageView,
+                        duration:0.3,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: { self.artistImageView.image = image },
+                        completion: nil
+                    )
+                }
+                
+            } else {
+                println("CANNOT CREATE URL : \(imageURL)")
             }
+            
 
             let formatter = NSDateFormatter()
             formatter.dateFormat = "HH:mm"
-            let (start, end) = (slot["start"] as NSDate , slot["end"] as NSDate)
+            let (start, end) = (slot["start"] as! NSDate , slot["end"] as! NSDate)
             
             timeLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
             
@@ -61,5 +69,24 @@ class SlotTableViewCell: PFTableViewCell {
 
         
     }
+    
+    override func prepareForReuse() {
+        artistImageView.hnk_cancelSetImage()
+        artistImageView.image = nil
+        artistNameLabel.text = nil
+        timeLabel.text = nil
+    }
+}
 
+public func wrapWeServe(url:String, height:Int? = nil, width:Int? = nil) -> String {
+    var encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+    var out = NSString(format: "http://images.weserv.nl/?url=\(encodedURL!)") as String
+    if let h = height {
+        out += "&h=\(h)"
+    }
+    if let w = width {
+        out += "&w=\(w)"
+    }
+    println(out)
+    return out
 }
