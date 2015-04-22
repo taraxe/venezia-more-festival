@@ -27,19 +27,49 @@ class ArtistViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UIButton!
     
+    
+    @IBAction func showPlace() {
+        if let slot = self.object {
+            let stage = slot["stage_id"] as! PFObject
+            let (lat, long) = (stage["lat"] as! NSNumber, stage["long"] as! NSNumber)
+            
+            let gMapsURL = NSURL(string:"comgooglemaps://?center=\(lat),\(long)&zoom=14&views=traffic")
+            let dMapURL = NSURL(string: "http://maps.apple.com/?ll=\(lat),\(long)&q=\(lat),\(long)&z=100")
+            
+            if (UIApplication.sharedApplication().canOpenURL(gMapsURL!)) {
+                println(gMapsURL)
+                UIApplication.sharedApplication().openURL(gMapsURL!)
+            } else {
+                println(dMapURL)
+                UIApplication.sharedApplication().openURL(dMapURL!)
+            }
+            
+        }
+        
+    }
+    
     func updateUI(){
         bioLabel?.attributedText = nil
         dateLabel?.attributedText = nil
         
         if let slot = self.object {
             let artist = slot["artist_id"] as! PFObject
+            let stage = slot["stage_id"] as! PFObject
+            
             let name = artist["name"] as! String
             let bio = artist["bio"]as! String
             let (start, end) = (slot["start"] as! NSDate, slot["end"] as! NSDate)
             
-            
+
             title = name
             bioLabel?.text = bio
+            
+            if let placeBt = self.placeLabel {
+                let stageName = stage["name"] as! String
+                placeBt.setTitle(stageName, forState: .Normal)
+            }
+            
+            
             
             if let artistImg = self.artistImage {
                 

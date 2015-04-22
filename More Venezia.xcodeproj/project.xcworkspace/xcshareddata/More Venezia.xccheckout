@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>53FD3A95-0901-4A33-8D74-E22447962A6C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>More Venezia</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
@@ -16,7 +16,7 @@
 		<string>github.com:Haneke/HanekeSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>More Venezia.xcodeproj/project.xcworkspace</string>
+	<string>More Venezia.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
