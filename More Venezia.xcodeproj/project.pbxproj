@@ -15,6 +15,8 @@
 		61020D931ADC4987000907A8 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61020D8D1ADC4987000907A8 /* ParseUI.framework */; };
 		613A78021AE6A32D00F55D9C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A78011AE6A32D00F55D9C /* Utils.swift */; };
 		61883BE71AC604EA000DF783 /* MemoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */; };
+		61A5A2CF1AEA93FA002DA100 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613A78161AE6B3BF00F55D9C /* Haneke.framework */; };
+		61A5A2D01AEA93FA002DA100 /* Haneke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 613A78161AE6B3BF00F55D9C /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */; };
 		61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */; };
 		61D88FAD1AD845E7000DD531 /* SlotsUISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */; };
@@ -62,7 +64,28 @@
 			remoteGlobalIDString = A095C9551980418C00CD0F4C;
 			remoteInfo = Haneke;
 		};
+		61A5A2D11AEA93FA002DA100 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 613A780F1AE6B3BF00F55D9C /* Haneke.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A095C9551980418C00CD0F4C;
+			remoteInfo = Haneke;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61A5A2D31AEA93FA002DA100 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				61A5A2D01AEA93FA002DA100 /* Haneke.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		61020D881ADC4987000907A8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -108,6 +131,7 @@
 				61020D921ADC4987000907A8 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				61020D8F1ADC4987000907A8 /* Parse.framework in Frameworks */,
 				61020D8E1ADC4987000907A8 /* Bolts.framework in Frameworks */,
+				61A5A2CF1AEA93FA002DA100 /* Haneke.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
 				61020D901ADC4987000907A8 /* ParseCrashReporting.framework in Frameworks */,
@@ -212,11 +236,13 @@
 				81BA81421A49DA1800E65899 /* Frameworks */,
 				81BA81431A49DA1800E65899 /* Resources */,
 				81CC85E11A49F6D40076DE19 /* Upload Symbol Files */,
+				61A5A2D31AEA93FA002DA100 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				613A781C1AE6B41000F55D9C /* PBXTargetDependency */,
+				61A5A2D21AEA93FA002DA100 /* PBXTargetDependency */,
 			);
 			name = "More Venezia";
 			productName = ParseStarterProject;
@@ -346,6 +372,11 @@
 			isa = PBXTargetDependency;
 			name = Haneke;
 			targetProxy = 613A781B1AE6B41000F55D9C /* PBXContainerItemProxy */;
+		};
+		61A5A2D21AEA93FA002DA100 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Haneke;
+			targetProxy = 61A5A2D11AEA93FA002DA100 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

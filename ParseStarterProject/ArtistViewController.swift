@@ -32,9 +32,10 @@ class ArtistViewController: UIViewController {
         if let slot = self.object {
             let stage = slot["stage_id"] as! PFObject
             let (lat, long) = (stage["lat"] as! NSNumber, stage["long"] as! NSNumber)
+            let stageName = stage["name"] as! String
             
-            let gMapsURL = NSURL(string:"comgooglemaps://?center=\(lat),\(long)&zoom=14&views=traffic")
-            let dMapURL = NSURL(string: "http://maps.apple.com/?ll=\(lat),\(long)&q=\(lat),\(long)&z=100")
+            let gMapsURL = NSURL(string:"comgooglemaps-x-callback://?q=\(lat),\(long)&x-success=morefest://?resume=true&x-source=More+Festival")
+            let dMapURL = NSURL(string: "http://maps.apple.com/?q=\(lat),\(long)&z=100")
             
             if (UIApplication.sharedApplication().canOpenURL(gMapsURL!)) {
                 println(gMapsURL)

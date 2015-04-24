@@ -70,4 +70,5 @@ extension String {
     func replace(pattern: String, template: String) -> String {
         return self.replaceRegex(Regex(pattern: pattern), template: template)
     }
+    
 }
