@@ -80,8 +80,8 @@ class SlotTableViewCell: PFTableViewCell {
 }
 
 public func wrapWeServe(url:String, height:Int? = nil, width:Int? = nil) -> String {
-    var encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-    var out = NSString(format: "http://images.weserv.nl/?url=\(encodedURL!)") as String
+    var encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").encodeURL()
+    var out = "http://images.weserv.nl/?url=\(encodedURL)"
     if let h = height {
         out += "&h=\(h)"
     }

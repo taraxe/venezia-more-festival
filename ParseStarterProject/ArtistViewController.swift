@@ -96,6 +96,7 @@ class ArtistViewController: UIViewController {
             formatter.locale = Constants.appLocale
             formatter.dateFormat = "hh:mm a"
         
+            
             dateLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
             
 

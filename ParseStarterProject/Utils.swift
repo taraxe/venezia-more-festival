@@ -71,4 +71,11 @@ extension String {
         return self.replaceRegex(Regex(pattern: pattern), template: template)
     }
     
+    public func encodeURL() -> String {
+        let legalURLCharactersToBeEscaped: CFStringRef = ":/?&=;+!@#$()',*"
+        
+        return CFURLCreateStringByAddingPercentEscapes(nil, self,
+            nil, legalURLCharactersToBeEscaped,
+            CFStringBuiltInEncodings.UTF8.rawValue) as String
+    }
 }
