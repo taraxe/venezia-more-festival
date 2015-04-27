@@ -14,6 +14,7 @@
 		61020D921ADC4987000907A8 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61020D8C1ADC4987000907A8 /* ParseFacebookUtilsV4.framework */; };
 		61020D931ADC4987000907A8 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61020D8D1ADC4987000907A8 /* ParseUI.framework */; };
 		613A78021AE6A32D00F55D9C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A78011AE6A32D00F55D9C /* Utils.swift */; };
+		61711BA41AED55EF00963B7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61711BA31AED55EF00963B7F /* Constants.swift */; };
 		61883BE71AC604EA000DF783 /* MemoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */; };
 		61A5A2CF1AEA93FA002DA100 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613A78161AE6B3BF00F55D9C /* Haneke.framework */; };
 		61A5A2D01AEA93FA002DA100 /* Haneke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 613A78161AE6B3BF00F55D9C /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -96,6 +97,7 @@
 		61020D8D1ADC4987000907A8 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		613A78011AE6A32D00F55D9C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		613A780F1AE6B3BF00F55D9C /* Haneke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haneke.xcodeproj; path = ../HanekeSwift/Haneke.xcodeproj; sourceTree = "<group>"; };
+		61711BA31AED55EF00963B7F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
 				613A78011AE6A32D00F55D9C /* Utils.swift */,
+				61711BA31AED55EF00963B7F /* Constants.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				61E77BC41AAA01C3005AAA68 /* SlotTableViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				61883BE71AC604EA000DF783 /* MemoriesCollectionViewController.swift in Sources */,
+				61711BA41AED55EF00963B7F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

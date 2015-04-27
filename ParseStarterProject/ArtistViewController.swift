@@ -91,19 +91,18 @@ class ArtistViewController: UIViewController {
                     println("CANNOT CREATE URL : \(imageURL)")
                 }
             }
-            
-    
-            
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "HH:mm"
-            dateLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
 
+            let formatter = NSDateFormatter()
+            formatter.locale = Constants.appLocale
+            formatter.dateFormat = "hh:mm a"
+        
+            dateLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
+            
 
         }
     }
     
     override func viewDidLoad() {
-        
         updateUI()
     }
 

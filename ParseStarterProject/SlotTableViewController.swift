@@ -69,7 +69,7 @@ class SlotTableViewController: PFQueryTableViewController {
         if let os = objects {
             println( "\(os.count) received from Parse" )
             
-            let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+            let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
             slots.removeAll(keepCapacity: false)
             
             // let fill the dictionary of days -> slots
@@ -90,10 +90,13 @@ class SlotTableViewController: PFQueryTableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! CustomHeaderCellTableViewCell
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd/MM"
+        formatter.locale = Constants.appLocale
+        formatter.dateFormat = "EEE, d MMM"
         let sectionDate = dateForSection(section)
         println("For section \(section), date is \(sectionDate)")
         headerCell.headerLabel.text = formatter.stringFromDate(sectionDate);
+        headerCell.headerLabel.textColor = UIColor.whiteColor()
+        headerCell.backgroundColor = UIColor.blackColor()
         return headerCell
     }
 
