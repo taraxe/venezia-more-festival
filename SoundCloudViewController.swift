@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SoundCloudViewController: UIViewController {
 
@@ -17,9 +18,22 @@ class SoundCloudViewController: UIViewController {
         super.viewDidLoad()
         
 
-        let webURL = NSURL(string: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/43560465&amp;hide_related=true&amp;show_comments=true&amp;show_reposts=false&amp;visual=true")
-        let urlRequest = NSURLRequest(URL: webURL!)
-        webView.loadRequest(urlRequest)
+        PFConfig.getConfigInBackgroundWithBlock {
+            (var config: PFConfig?, error: NSError?) -> Void in
+            if error == nil {
+                println("Yay! Config was fetched from the server.")
+            } else {
+                println("Failed to fetch. Using Cached Config.")
+                config = PFConfig.currentConfig()
+            }
+            
+            var url = config?["playlist_soundcloud_url"] as? String
+
+            let webURL = NSURL(string: "https://w.soundcloud.com/player/?url=\(url!.encodeURL())&amp;hide_related=true&amp;show_comments=false&amp;show_reposts=false&amp;visual=true")
+            let urlRequest = NSURLRequest(URL: webURL!)
+            self.webView.loadRequest(urlRequest)
+        };
+        
 
         // Do any additional setup after loading the view.
     }

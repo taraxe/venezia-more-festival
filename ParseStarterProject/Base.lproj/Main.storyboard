@@ -234,8 +234,8 @@
                                     <constraint firstAttribute="height" constant="32" id="RWC-Jh-pba"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-He-lKL">
-                                <rect key="frame" x="16" y="354" width="568" height="189"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-He-lKL">
+                                <rect key="frame" x="16" y="354" width="568" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Bb5-60-GGZ"/>
                                 </constraints>
@@ -269,7 +269,6 @@
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" constant="-16" id="Mxm-1n-rmY"/>
                             <constraint firstItem="Ezt-Lz-HBV" firstAttribute="top" secondItem="v3P-y5-dcy" secondAttribute="bottom" constant="8" symbolic="YES" id="N44-1b-Owe"/>
                             <constraint firstItem="mhL-i0-gEn" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" id="OkP-jn-6g0"/>
-                            <constraint firstItem="Dj8-lD-zev" firstAttribute="top" secondItem="ca8-He-lKL" secondAttribute="bottom" constant="8" id="PiS-r3-SVf"/>
                             <constraint firstItem="v3P-y5-dcy" firstAttribute="top" secondItem="t4g-lG-buU" secondAttribute="top" constant="20" symbolic="YES" id="QNf-Zr-pde"/>
                             <constraint firstItem="ENX-8q-a3W" firstAttribute="top" secondItem="Ezt-Lz-HBV" secondAttribute="bottom" constant="8" symbolic="YES" id="SXp-TR-7a5"/>
                             <constraint firstItem="Ezt-Lz-HBV" firstAttribute="leading" secondItem="t4g-lG-buU" secondAttribute="leadingMargin" id="T86-OC-4ql"/>
@@ -400,25 +399,6 @@
             </objects>
             <point key="canvasLocation" x="111" y="333"/>
         </scene>
-        <!--Memories-->
-        <scene sceneID="YIG-bx-M5Q">
-            <objects>
-                <viewController id="2lQ-5v-Cut" customClass="MemoriesCollectionViewController" customModule="More_Venezia" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="umO-ya-ic3"/>
-                        <viewControllerLayoutGuide type="bottom" id="ULu-Zi-q1n"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Y0U-LX-zOA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Memories" id="yCr-6O-y8T"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n5o-j4-kzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="877" y="1902"/>
-        </scene>
         <!--Table View Controller-->
         <scene sceneID="DSr-jH-BPM">
             <objects>
@@ -548,10 +528,103 @@
             </objects>
             <point key="canvasLocation" x="877" y="1035"/>
         </scene>
+        <!--Memories Collection View Controller-->
+        <scene sceneID="ETc-SS-pE0">
+            <objects>
+                <collectionViewController id="IoT-Ch-Ev4" customClass="MemoriesCollectionViewController" customModule="More_Venezia" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4qN-gJ-6qJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="abu-gA-bBi">
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemoryCell" id="FtT-uB-6uc" customClass="MemoriesCollectionViewCell" customModule="More_Venezia" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vhd-TF-CGv">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="leading" secondItem="FtT-uB-6uc" secondAttribute="leading" id="0QN-DV-tCa"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="topMargin" id="8yA-dt-SuB"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="topMargin" id="Ce5-Ar-pfS"/>
+                                    <constraint firstAttribute="trailing" secondItem="vhd-TF-CGv" secondAttribute="trailing" id="KDC-3I-B5Q"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="bottom" secondItem="FtT-uB-6uc" secondAttribute="bottomMargin" id="KMn-r3-Wrq"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="topMargin" id="Kds-bN-UeX"/>
+                                    <constraint firstAttribute="bottom" secondItem="vhd-TF-CGv" secondAttribute="bottom" id="LQC-xf-EMk"/>
+                                    <constraint firstAttribute="trailing" secondItem="vhd-TF-CGv" secondAttribute="trailing" id="Ldy-8g-G4L"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="top" id="LqE-9v-FJ3"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="leading" secondItem="FtT-uB-6uc" secondAttribute="leading" id="Mub-mm-3cJ"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="vhd-TF-CGv" secondAttribute="bottom" id="PxK-i2-ZfE"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="leading" secondItem="FtT-uB-6uc" secondAttribute="leadingMargin" id="UUv-Py-GxA"/>
+                                    <constraint firstAttribute="bottom" secondItem="vhd-TF-CGv" secondAttribute="bottom" id="UfG-MZ-Ocu"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="vhd-TF-CGv" secondAttribute="trailing" id="VaY-L5-eYN"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="top" id="Y0w-tz-KsS"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="trailing" secondItem="FtT-uB-6uc" secondAttribute="trailingMargin" id="YFf-9V-km6"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="vhd-TF-CGv" secondAttribute="trailing" id="bic-cj-8BR"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="leading" secondItem="FtT-uB-6uc" secondAttribute="leadingMargin" id="dUw-6J-tQW"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="vhd-TF-CGv" secondAttribute="bottom" id="fIY-Dw-Fth"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="top" secondItem="FtT-uB-6uc" secondAttribute="topMargin" id="h1N-AX-oWs"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="leading" secondItem="FtT-uB-6uc" secondAttribute="leadingMargin" id="mSM-lO-TrB"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="trailing" secondItem="FtT-uB-6uc" secondAttribute="trailingMargin" id="nKV-dL-EJi"/>
+                                    <constraint firstItem="vhd-TF-CGv" firstAttribute="bottom" secondItem="FtT-uB-6uc" secondAttribute="bottomMargin" id="oEc-Wd-Sgk"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="vhd-TF-CGv" secondAttribute="trailing" id="tUS-ff-6wU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0QN-DV-tCa"/>
+                                        <exclude reference="8yA-dt-SuB"/>
+                                        <exclude reference="Ce5-Ar-pfS"/>
+                                        <exclude reference="KMn-r3-Wrq"/>
+                                        <exclude reference="Kds-bN-UeX"/>
+                                        <exclude reference="LQC-xf-EMk"/>
+                                        <exclude reference="Ldy-8g-G4L"/>
+                                        <exclude reference="PxK-i2-ZfE"/>
+                                        <exclude reference="UUv-Py-GxA"/>
+                                        <exclude reference="VaY-L5-eYN"/>
+                                        <exclude reference="Y0w-tz-KsS"/>
+                                        <exclude reference="YFf-9V-km6"/>
+                                        <exclude reference="bic-cj-8BR"/>
+                                        <exclude reference="dUw-6J-tQW"/>
+                                        <exclude reference="fIY-Dw-Fth"/>
+                                        <exclude reference="h1N-AX-oWs"/>
+                                        <exclude reference="mSM-lO-TrB"/>
+                                        <exclude reference="nKV-dL-EJi"/>
+                                        <exclude reference="oEc-Wd-Sgk"/>
+                                        <exclude reference="tUS-ff-6wU"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="pictureImageView" destination="vhd-TF-CGv" id="KVP-27-WRj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="IoT-Ch-Ev4" id="Qxn-cV-bzB"/>
+                            <outlet property="delegate" destination="IoT-Ch-Ev4" id="OM5-C0-1Cq"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="7pH-P2-piI"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbz-ZS-J0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="1902"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7cE-AG-LTA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="45m-Od-PcY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" id="45m-Od-PcY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6pf-mf-cA8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -600,7 +673,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2lQ-5v-Cut" kind="relationship" relationship="rootViewController" id="SHp-MR-eh9"/>
+                        <segue destination="IoT-Ch-Ev4" kind="relationship" relationship="rootViewController" id="JEb-R9-zpR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yem-u3-F74" userLabel="First Responder" sceneMemberID="firstResponder"/>

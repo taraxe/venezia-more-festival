@@ -12,6 +12,7 @@ import ParseUI
 
 class SlotTableViewController: PFQueryTableViewController {
     
+    var isInitialized = false
     var slots = [NSDate : [PFObject]]()
     
     required init(coder aDecoder: NSCoder) {
@@ -83,7 +84,17 @@ class SlotTableViewController: PFQueryTableViewController {
             }
             println( "\(slots.count) after filtering" )
             tableView.reloadData()
+            
 
+//            if(!isInitialized){
+//                isInitialized = true;
+//                let currentSection = 1
+//                let currentRow = 2
+//                
+//                let indexPath = NSIndexPath(forItem: currentRow, inSection: currentSection)
+//                tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+//                
+//          }
         }
     }
     
@@ -136,6 +147,12 @@ class SlotTableViewController: PFQueryTableViewController {
             }
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hidden = true
+    }
+
 }
 public func <(a: NSDate, b: NSDate) -> Bool {
     return a.compare(b) == NSComparisonResult.OrderedAscending

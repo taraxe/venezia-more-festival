@@ -38,7 +38,7 @@ class SlotTableViewCell: PFTableViewCell {
             
             let artist = slot["artist_id"] as! PFObject
             // load image
-            let imageURL = wrapWeServe((artist["image"] as! String), height: 75)
+            let imageURL = WeServ.proxy((artist["image"] as! String), height: 75)
             
             if let url = NSURL(string: imageURL) {
                 let fetcher = NetworkFetcher<UIImage>(URL: url)
@@ -77,17 +77,4 @@ class SlotTableViewCell: PFTableViewCell {
         artistNameLabel.text = nil
         timeLabel.text = nil
     }
-}
-
-public func wrapWeServe(url:String, height:Int? = nil, width:Int? = nil) -> String {
-    var encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").encodeURL()
-    var out = "http://images.weserv.nl/?url=\(encodedURL)"
-    if let h = height {
-        out += "&h=\(h)"
-    }
-    if let w = width {
-        out += "&w=\(w)"
-    }
-    println(out)
-    return out
 }

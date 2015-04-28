@@ -15,6 +15,8 @@ class ArtistViewController: UIViewController {
 
     let cache = Shared.imageCache
     
+
+    
     var object :PFObject? {
         didSet {
             updateUI()
@@ -74,7 +76,7 @@ class ArtistViewController: UIViewController {
             
             if let artistImg = self.artistImage {
                 
-                let imageURL = wrapWeServe((artist["image"] as! String), height: 300)
+                let imageURL = WeServ.proxy((artist["image"] as! String), height: 300)
                 
                 if let url = NSURL(string: imageURL) {
                     let fetcher = NetworkFetcher<UIImage>(URL: url)
@@ -106,6 +108,14 @@ class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         updateUI()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.hidden = false
+        
+    }
+
 
     /*
     // MARK: - Navigation

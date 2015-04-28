@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Parse
 
-let reuseIdentifier = "Cell"
+let reuseIdentifier = "MemoryCell"
 
 class MemoriesCollectionViewController: UICollectionViewController {
 
+    var pictures = [Picture]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,15 +22,34 @@ class MemoriesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        // self.collectionView!.registerClass(MemoriesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+        
+        PFCloud.callFunctionInBackground("images", withParameters:[:]) { (result: AnyObject?, error: NSError?) -> Void in
+            if error == nil {
+                let images = result! as! Array<Dictionary<String, AnyObject>>
+                
+                self.pictures.removeAll(keepCapacity: false)
+                
+                self.pictures += images.map({ i in Picture(dic : i)})
+                println("Received \(self.pictures.count) pictures")
+                
+                self.collectionView?.reloadData()
+                
+            } else {
+                println(error)
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation
@@ -43,19 +65,19 @@ class MemoriesCollectionViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        return pictures.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
-    
-        // Configure the cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemoriesCollectionViewCell
+
+        cell.picture = pictures[indexPath.row]
     
         return cell
     }
