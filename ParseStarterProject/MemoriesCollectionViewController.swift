@@ -112,5 +112,28 @@ class MemoriesCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "ShowPicture":
+                let cell = sender as! MemoriesCollectionViewCell
+                if let memoryViewController = destination as? MemoryViewController {
+                    memoryViewController.image = cell.picture?.big
+                }
+
+ 
+            default:
+                break
+            }
+        }
+        
+    }
 
 }

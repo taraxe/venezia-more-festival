@@ -21,6 +21,7 @@
 		61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */; };
 		61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */; };
 		61B9F8601AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9F85F1AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift */; };
+		61B9F8641AEF0D350015EBCC /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */; };
 		61D88FAD1AD845E7000DD531 /* SlotsUISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */; };
 		61E77BC41AAA01C3005AAA68 /* SlotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E77BC31AAA01C3005AAA68 /* SlotTableViewController.swift */; };
 		61E77BC81AAA0312005AAA68 /* SoundCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */; };
@@ -102,6 +103,7 @@
 		61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		61B9F85F1AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
 		61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotsUISplitViewController.swift; sourceTree = "<group>"; };
 		61E77BC31AAA01C3005AAA68 /* SlotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlotTableViewController.swift; sourceTree = "<group>"; };
 		61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundCloudViewController.swift; path = ../SoundCloudViewController.swift; sourceTree = "<group>"; };
@@ -174,10 +176,13 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
+				613A78011AE6A32D00F55D9C /* Utils.swift */,
+				61711BA31AED55EF00963B7F /* Constants.swift */,
 				61E77BCB1AAA0696005AAA68 /* Models.swift */,
 				61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */,
 				61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */,
 				61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */,
 				61B9F85F1AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift */,
@@ -187,8 +192,6 @@
 				61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
-				613A78011AE6A32D00F55D9C /* Utils.swift */,
-				61711BA31AED55EF00963B7F /* Constants.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				61E77BCC1AAA0696005AAA68 /* Models.swift in Sources */,
 				61E77BC81AAA0312005AAA68 /* SoundCloudViewController.swift in Sources */,
 				61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */,
+				61B9F8641AEF0D350015EBCC /* MemoryViewController.swift in Sources */,
 				61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */,
 				61D88FAD1AD845E7000DD531 /* SlotsUISplitViewController.swift in Sources */,
 				613A78021AE6A32D00F55D9C /* Utils.swift in Sources */,

@@ -21,6 +21,7 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    
     func updateUI() {
         //reset
         self.pictureImageView?.image = nil

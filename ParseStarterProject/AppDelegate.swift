@@ -79,7 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(types)
         }
 
-        application.setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        //application.statusBarHidden = true
+        //application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        //application.setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
         return true
     }
 
