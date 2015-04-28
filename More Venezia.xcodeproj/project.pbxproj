@@ -176,10 +176,10 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
-				613A78011AE6A32D00F55D9C /* Utils.swift */,
-				61711BA31AED55EF00963B7F /* Constants.swift */,
 				61E77BCB1AAA0696005AAA68 /* Models.swift */,
 				61E77BC71AAA0312005AAA68 /* SoundCloudViewController.swift */,
+				613A78011AE6A32D00F55D9C /* Utils.swift */,
+				61711BA31AED55EF00963B7F /* Constants.swift */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */,

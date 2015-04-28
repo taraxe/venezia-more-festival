@@ -12,6 +12,7 @@ import ParseUI
 
 class SlotTableViewController: PFQueryTableViewController {
     
+    var collapseDetailViewController: Bool  = true
     var isInitialized = false
     var slots = [NSDate : [PFObject]]()
     
@@ -128,9 +129,14 @@ class SlotTableViewController: PFQueryTableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destination = segue.destinationViewController as? UIViewController
-        if let navCon = destination as? UINavigationController {
-            destination = navCon.visibleViewController
+        var artistViewController : ArtistViewController!
+        
+        if let artistNavigationController = segue.destinationViewController as? UINavigationController {
+            artistViewController = artistNavigationController.topViewController as! ArtistViewController
+            artistViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            artistViewController.navigationItem.leftItemsSupplementBackButton = true
+        } else {
+            artistViewController = segue.destinationViewController as! ArtistViewController
         }
         
         if let identifier = segue.identifier {
@@ -138,9 +144,7 @@ class SlotTableViewController: PFQueryTableViewController {
             case "ShowArtist":
                 let cell = sender as! SlotTableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
-                    if let artistViewController = destination as? ArtistViewController {
-                        artistViewController.object = cell.object
-                    }
+                    artistViewController.object = cell.object
                 }
             default:
                 break
@@ -148,9 +152,8 @@ class SlotTableViewController: PFQueryTableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = true
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        collapseDetailViewController = false
     }
 
 }

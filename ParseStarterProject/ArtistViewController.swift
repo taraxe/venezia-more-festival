@@ -108,11 +108,6 @@ class ArtistViewController: UIViewController {
     override func viewDidLoad() {
         updateUI()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
-    }
 
 
     /*

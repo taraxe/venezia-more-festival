@@ -15,9 +15,10 @@ class SlotsUISplitViewController: UISplitViewController, UISplitViewControllerDe
         delegate = self
     }
     
+    // MARK: - UISplitViewControllerDelegate
+    
+    
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
-
-        println("HIT")
         
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? ArtistViewController {
@@ -29,5 +30,10 @@ class SlotsUISplitViewController: UISplitViewController, UISplitViewControllerDe
         }
         return false
     }
+    
+//    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+//        return orientation == UIInterfaceOrientation.Portrait
+//    }
+    
    
 }
