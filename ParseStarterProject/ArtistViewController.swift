@@ -29,6 +29,21 @@ class ArtistViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UIButton!
     
+    @IBAction func shareAction(sender: UIBarButtonItem) {
+       
+        
+        if let slot = self.object {
+            let artist = slot["artist_id"] as! PFObject
+            let name = artist["name"] as! String
+        
+            let text:String = "Come to see \(name) at More Festival Venezia"
+            let url:NSURL = NSURL(string: "http://www.more-festival.com/")!
+            let image:UIImage = artistImage.image!
+        
+            let activityViewController = UIActivityViewController(activityItems: [text, image, url], applicationActivities: nil)
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func showPlace() {
         if let slot = self.object {

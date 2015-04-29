@@ -346,7 +346,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Artist" id="rNA-4G-3ji"/>
+                    <navigationItem key="navigationItem" title="Artist" id="rNA-4G-3ji">
+                        <barButtonItem key="rightBarButtonItem" image="upload" id="02K-tS-eKX">
+                            <connections>
+                                <action selector="shareAction:" destination="S4l-dL-d1H" id="4z4-8T-zhX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="artistImage" destination="v3P-y5-dcy" id="Jq1-kx-sXX"/>
                         <outlet property="bioLabel" destination="ca8-He-lKL" id="Vie-ql-qEg"/>
@@ -361,7 +367,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hf5-Rz-A2x">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M4U-qQ-EZi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="M4U-qQ-EZi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bl2-QW-E6d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -697,7 +703,7 @@
         <!--Memories-->
         <scene sceneID="CUS-9O-gt5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1Lr-mJ-9d4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" hidesBarsOnSwipe="YES" id="1Lr-mJ-9d4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Memories" image="albums" id="f3B-0V-FhX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEv-mp-iGm">
@@ -742,6 +748,7 @@
         <image name="music_note" width="32" height="32"/>
         <image name="near" width="32" height="32"/>
         <image name="recents" width="32" height="32"/>
+        <image name="upload" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uWt-zP-feJ"/>
