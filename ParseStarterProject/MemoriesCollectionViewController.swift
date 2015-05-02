@@ -14,9 +14,14 @@ let reuseIdentifier = "MemoryCell"
 class MemoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var pictures = [Picture]()
+    var refreshControl:UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        collectionView?.addSubview(refreshControl!)
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -29,7 +34,10 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
         // self.collectionView!.registerClass(MemoriesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        
+        loadData()
+    }
+    
+    func loadData() {
         PFCloud.callFunctionInBackground("images", withParameters:[:]) { (result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
                 let images = result! as! Array<Dictionary<String, AnyObject>>
@@ -37,6 +45,7 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
                 self.pictures.removeAll(keepCapacity: false)
                 
                 self.pictures += images.map({ i in Picture(dic : i)})
+                
                 println("Received \(self.pictures.count) pictures")
                 
                 self.collectionView?.reloadData()
@@ -44,8 +53,8 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
             } else {
                 println(error)
             }
-            
         }
+        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
