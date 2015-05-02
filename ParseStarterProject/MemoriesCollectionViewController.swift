@@ -145,7 +145,10 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
         return 1.0
     }
     
-    
+    // so sizeForItemAtIndexPath gets called
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        self.collectionView?.collectionViewLayout.invalidateLayout()
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
