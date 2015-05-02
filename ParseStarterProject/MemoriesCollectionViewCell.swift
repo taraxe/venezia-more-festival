@@ -15,6 +15,8 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pictureImageView: UIImageView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     var picture:Picture? {
         didSet {
             updateUI()
@@ -24,6 +26,7 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
     
     func updateUI() {
         //reset
+        self.spinner?.startAnimating()
         self.pictureImageView?.image = nil
             
         if let pic = picture {
@@ -33,6 +36,9 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
                 let fetcher = NetworkFetcher<UIImage>(URL: url)
                 //self.artistImageView.hnk_setImageFromURL(wrapped)
                 cache.fetch(fetcher: fetcher).onSuccess { image in
+                    
+                    self.spinner?.stopAnimating
+                    
                     UIView.transitionWithView(self.pictureImageView,
                         duration:0.3,
                         options: UIViewAnimationOptions.TransitionCrossDissolve,

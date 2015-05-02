@@ -11,13 +11,17 @@ import Parse
 
 let reuseIdentifier = "MemoryCell"
 
-class MemoriesCollectionViewController: UICollectionViewController {
+class MemoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var pictures = [Picture]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView!.delegate = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,7 +29,6 @@ class MemoriesCollectionViewController: UICollectionViewController {
         // self.collectionView!.registerClass(MemoriesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        
         
         PFCloud.callFunctionInBackground("images", withParameters:[:]) { (result: AnyObject?, error: NSError?) -> Void in
             if error == nil {
@@ -78,7 +81,7 @@ class MemoriesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemoriesCollectionViewCell
 
         cell.picture = pictures[indexPath.row]
-    
+        
         return cell
     }
 
@@ -112,6 +115,22 @@ class MemoriesCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let picDimension = (self.view.frame.size.width / 3.0)
+        return CGSizeMake(picDimension - 1.0, picDimension)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destination = segue.destinationViewController as? UIViewController
