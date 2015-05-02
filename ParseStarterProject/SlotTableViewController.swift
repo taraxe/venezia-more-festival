@@ -13,7 +13,6 @@ import ParseUI
 class SlotTableViewController: PFQueryTableViewController {
     
     var collapseDetailViewController: Bool  = true
-    var isInitialized = false
     var slots = [NSDate : [PFObject]]()
     
     required init(coder aDecoder: NSCoder) {

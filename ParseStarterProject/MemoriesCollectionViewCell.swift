@@ -23,6 +23,12 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var allPictures: [Picture]? {
+        didSet {
+//
+        }
+    }
+    
     
     func updateUI() {
         //reset
@@ -56,6 +62,7 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         self.pictureImageView?.hnk_cancelSetImage()
         self.pictureImageView?.image = nil
+        self.picture = nil
     }
 
     

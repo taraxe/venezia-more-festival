@@ -71,6 +71,49 @@ struct Image {
     }
 }
 
+enum InfoProtocol:String {
+    case Tel = "tel"
+    case Sms = "sms"
+    case Http = "http"
+    case Https = "https"
+    case Email = "mailto"
+    case Facebook = "fb"
+    case Twitter = "twitter"
+}
+
+struct InfoSection {
+    let name:String
+    let order:Int
+    let items:[InfoItem]
+    init(dic:Dictionary<String, AnyObject>) {
+        self.name = dic["name"] as! String
+        let items = dic["items"] as! [Dictionary<String, AnyObject>]
+        self.items = items.map({i in InfoItem(dic: i)})
+        self.order = dic["order"] as! Int
+    }
+    
+}
+
+struct InfoItem {
+    let name:String
+    let proto:InfoProtocol?
+    let value:String
+    let path:String?
+    
+    init(dic:Dictionary<String, AnyObject>) {
+        self.name = dic["name"] as! String
+        self.value = dic["value"] as! String
+        self.path = dic["path"] as? String
+        if let p = dic["protocol"] as? String {
+            self.proto = InfoProtocol(rawValue: p)
+        } else {
+            self.proto = nil
+        }
+    }
+}
+
+
+
 class WeServ {
     
     static func proxy(image:Image) -> String {

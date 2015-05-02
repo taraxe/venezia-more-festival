@@ -16,16 +16,14 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
     var pictures = [Picture]()
     var refreshControl:UIRefreshControl?
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
-        collectionView?.addSubview(refreshControl!)
-
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionView!.delegate = self
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,6 +32,15 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
         // self.collectionView!.registerClass(MemoriesCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        collectionView?.addSubview(refreshControl!)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView!.delegate = self
+        
         loadData()
     }
     

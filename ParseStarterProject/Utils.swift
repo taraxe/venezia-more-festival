@@ -79,3 +79,14 @@ extension String {
             CFStringBuiltInEncodings.UTF8.rawValue) as String
     }
 }
+
+extension Optional {
+    func or(defaultValue: T) -> T {
+        switch(self) {
+        case .None:
+            return defaultValue
+        case .Some(let value):
+            return value
+        }
+    }
+}
