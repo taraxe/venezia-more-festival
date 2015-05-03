@@ -19,6 +19,11 @@ class InfoTableViewController : UITableViewController {
         loadData()
     }
     
+    
+    @IBAction func refreshInfos(sender: UIRefreshControl) {
+        loadData()
+    }
+    
     func loadData(){
         
         PFConfig.getConfigInBackgroundWithBlock {

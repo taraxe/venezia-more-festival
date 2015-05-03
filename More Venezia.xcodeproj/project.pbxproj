@@ -20,6 +20,7 @@
 		61A5A2D01AEA93FA002DA100 /* Haneke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 613A78161AE6B3BF00F55D9C /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61ADA39A1AAA864A00184FE5 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */; };
 		61AE855C1AF5101E00AB8933 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AE855B1AF5101E00AB8933 /* InfoTableViewController.swift */; };
+		61AE85621AF65C9B00AB8933 /* default_infos.json in Resources */ = {isa = PBXBuildFile; fileRef = 61AE85611AF65C9B00AB8933 /* default_infos.json */; };
 		61B659C91AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */; };
 		61B9F8601AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9F85F1AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift */; };
 		61B9F8641AEF0D350015EBCC /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */; };
@@ -103,6 +104,7 @@
 		61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		61ADA3991AAA864A00184FE5 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		61AE855B1AF5101E00AB8933 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		61AE85611AF65C9B00AB8933 /* default_infos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = default_infos.json; sourceTree = "<group>"; };
 		61B659C81AC5B1FE00F05A5C /* CustomHeaderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		61B9F85F1AEEDAFA0015EBCC /* MemoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				61AE855B1AF5101E00AB8933 /* InfoTableViewController.swift */,
+				61AE85611AF65C9B00AB8933 /* default_infos.json */,
 				61B9F8631AEF0D340015EBCC /* MemoryViewController.swift */,
 				61D88FAC1AD845E7000DD531 /* SlotsUISplitViewController.swift */,
 				61883BE61AC604EA000DF783 /* MemoriesCollectionViewController.swift */,
@@ -331,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AE85621AF65C9B00AB8933 /* default_infos.json in Resources */,
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
 			);

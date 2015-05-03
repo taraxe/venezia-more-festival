@@ -60,8 +60,8 @@ class MemoriesCollectionViewController: UICollectionViewController, UICollection
             } else {
                 println(error)
             }
-        }
         self.refreshControl?.endRefreshing()
+        }
     }
 
     override func didReceiveMemoryWarning() {

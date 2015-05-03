@@ -1,0 +1,57 @@
+ [
+  {
+  "items": [
+            {
+            "name": "Email",
+            "protocol": "mailto",
+            "value": "contact@morefestival.com"
+            },
+            {
+            "name": "Facebook",
+            "path": "profile?app_scoped_user_id=209974132482277",
+            "protocol": "fb",
+            "value": "MoreFestival"
+            },
+            {
+            "name": "Twitter",
+            "path": "/user?screen_name=MoreFestival",
+            "protocol": "twitter",
+            "value": "@MOREfestival"
+            }
+            ],
+  "name": "Contact",
+  "order": 0
+  },
+  {
+  "items": [
+            {
+            "name": "Tickets",
+            "protocol": "https",
+            "value": "www.weezevent.com/venezia-more-festival"
+            },
+            {
+            "name": "Hotels",
+            "protocol": "http",
+            "value": "www.more-festival.com/hotel"
+            }
+            ],
+  "name": "Booking",
+  "order": 1
+  },
+  {
+  "items": [
+            {
+            "name": "Venezia Taxi",
+            "protocol": "tel",
+            "value": "+39041723112"
+            },
+            {
+            "name": "Venice Water Taxi",
+            "protocol": "tel",
+            "value": "+390415229040"
+            }
+            ],
+  "name": "Transport",
+  "order": 2
+  }
+  ]
