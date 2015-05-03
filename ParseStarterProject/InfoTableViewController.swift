@@ -52,7 +52,17 @@ class InfoTableViewController : UITableViewController {
 
         let i = infos[indexPath.section].items[indexPath.row]
         cell.detailTextLabel?.text = i.value
-        cell.textLabel?.text = i.name
+        
+        switch i.name.lowercaseString {
+        case "facebook" :
+            cell.imageView?.image = UIImage(named: "facebook")
+        case "twitter" :
+            cell.imageView?.image = UIImage(named: "twitter")
+        case "email" :
+            cell.imageView?.image = UIImage(named: "email_circle")
+        default:
+            cell.textLabel?.text = i.name
+        }
         
         return cell
     }
