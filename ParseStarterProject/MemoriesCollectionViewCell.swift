@@ -57,12 +57,14 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
                 println("CANNOT CREATE URL : \(imageURL)")
             }
         }
+        self.spinner?.stopAnimating
     }
     
     override func prepareForReuse() {
         self.pictureImageView?.hnk_cancelSetImage()
         self.pictureImageView?.image = nil
         self.picture = nil
+//        self.spinner?.startAnimating()
     }
 
     

@@ -91,7 +91,7 @@ class ArtistViewController: UIViewController {
             
             if let artistImg = self.artistImage {
                 
-                let imageURL = WeServ.proxy((artist["image"] as! String), height: 300)
+                let imageURL = WeServ.proxy((artist["image"] as! String), height: 1200, width: 492)
                 
                 if let url = NSURL(string: imageURL) {
                     let fetcher = NetworkFetcher<UIImage>(URL: url)
@@ -122,6 +122,14 @@ class ArtistViewController: UIViewController {
     
     override func viewDidLoad() {
         updateUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
 

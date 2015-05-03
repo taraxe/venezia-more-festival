@@ -38,7 +38,7 @@ class SlotTableViewCell: PFTableViewCell {
             
             let artist = slot["artist_id"] as! PFObject
             // load image
-            let imageURL = WeServ.proxy((artist["image"] as! String), height: 75)
+            let imageURL = WeServ.proxy((artist["image"] as! String), height: 150, width: 150)
             
             if let url = NSURL(string: imageURL) {
                 let fetcher = NetworkFetcher<UIImage>(URL: url)
