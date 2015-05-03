@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Program-->
+        <!--Programme-->
         <scene sceneID="A03-oM-Gsc">
             <objects>
                 <tableViewController id="kYu-I0-7kC" customClass="SlotTableViewController" customModule="More_Festival" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,7 +92,7 @@
                             <outlet property="delegate" destination="kYu-I0-7kC" id="rBU-5g-NIq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Program" id="YSU-Ro-X4R"/>
+                    <navigationItem key="navigationItem" title="Programme" id="YSU-Ro-X4R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsF-xr-pqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -452,10 +452,10 @@
             </objects>
             <point key="canvasLocation" x="877" y="1035"/>
         </scene>
-        <!--Memories Collection View Controller-->
+        <!--Memories-->
         <scene sceneID="ETc-SS-pE0">
             <objects>
-                <collectionViewController id="IoT-Ch-Ev4" customClass="MemoriesCollectionViewController" customModule="More_Festival" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Memories" id="IoT-Ch-Ev4" customClass="MemoriesCollectionViewController" customModule="More_Festival" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4qN-gJ-6qJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -583,7 +583,7 @@
                             <outlet property="delegate" destination="IoT-Ch-Ev4" id="OM5-C0-1Cq"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="7pH-P2-piI"/>
+                    <navigationItem key="navigationItem" title="Memories" id="7pH-P2-piI"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbz-ZS-J0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -613,7 +613,13 @@
                             <constraint firstItem="foi-ut-pBv" firstAttribute="top" secondItem="nyT-Jo-mfv" secondAttribute="top" id="Z8v-PU-A6c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aCi-zj-3KB"/>
+                    <navigationItem key="navigationItem" id="aCi-zj-3KB">
+                        <barButtonItem key="rightBarButtonItem" image="upload" id="Fgd-ig-5by">
+                            <connections>
+                                <action selector="shareAction:" destination="5Bs-7M-Doc" id="6L7-Gk-vbZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="foi-ut-pBv" id="Ego-U2-Yfc"/>
                     </connections>
@@ -665,7 +671,7 @@
         <!--Memories-->
         <scene sceneID="CUS-9O-gt5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" hidesBarsOnSwipe="YES" id="1Lr-mJ-9d4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="1Lr-mJ-9d4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Memories" image="albums" id="f3B-0V-FhX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEv-mp-iGm">
@@ -713,6 +719,6 @@
         <image name="upload" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uWt-zP-feJ"/>
+        <segue reference="Oz2-Ov-wWg"/>
     </inferredMetricsTieBreakers>
 </document>

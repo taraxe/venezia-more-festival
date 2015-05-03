@@ -20,6 +20,15 @@ class MemoryViewController: UIViewController {
         }
     }
     
+    @IBAction func shareAction(sender: UIBarButtonItem) {
+        let text:String = "Check out this picture from Venezia More Festival"
+        let url:NSURL = NSURL(string: "http://www.more-festival.com/")!
+        let image:UIImage = imageView.image!
+            
+        let activityViewController = UIActivityViewController(activityItems: [text, image, url], applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         updateUI()
     }
