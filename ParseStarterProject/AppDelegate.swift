@@ -79,9 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(types)
         }
 
-        //application.statusBarHidden = true
-        //application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        //application.setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        
+        //Black nav bar
+        UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         return true
     }
 
