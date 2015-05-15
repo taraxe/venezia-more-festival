@@ -28,6 +28,7 @@ class ArtistViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var placeLabel: UIButton!
+    @IBOutlet weak var soundcloudButton: UIButton!
     
     @IBAction func shareAction(sender: UIBarButtonItem) {
        
@@ -76,6 +77,7 @@ class ArtistViewController: UIViewController {
             
             let name = artist["name"] as! String
             let bio = artist["bio"]as! String
+            
             let (start, end) = (slot["start"] as! NSDate, slot["end"] as! NSDate)
             
 
@@ -116,7 +118,25 @@ class ArtistViewController: UIViewController {
             
             dateLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
             
+            let soundcloud = artist["soundcloud"] as? String
+            if soundcloud == nil {
+                self.soundcloudButton?.hidden = true
+            }
 
+        }
+    }
+    
+    @IBAction func openSoundcloud(sender: AnyObject) {
+        if let slot = self.object {
+            if let artist = slot["artist_id"] as? PFObject {
+                if let soundcloud = artist["soundcloud"] as? String {
+                    if let url = NSURL(string: soundcloud) {
+                    if (UIApplication.sharedApplication().canOpenURL(url)) {
+                        UIApplication.sharedApplication().openURL(url)
+                        }
+                    }
+                }
+            }
         }
     }
     
