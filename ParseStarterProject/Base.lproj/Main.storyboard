@@ -23,7 +23,6 @@
                                     <subviews>
                                         <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hkq-F0-3hP">
                                             <rect key="frame" x="8" y="8" width="75" height="75"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="F2v-Fl-mOJ"/>
                                                 <constraint firstAttribute="height" constant="75" id="njN-o3-Kn8"/>
