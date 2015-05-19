@@ -15,8 +15,6 @@ class ArtistViewController: UIViewController {
 
     let cache = Shared.imageCache
     
-
-    
     var object :PFObject? {
         didSet {
             updateUI()
@@ -157,6 +155,11 @@ class ArtistViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+//        let placeHolder = UIImageView(image: UIImage(named: "background"))
+//        placeHolder.frame = self.contentView.frame
+//        self.contentView?.addSubview(placeHolder)
+        
         updateUI()
     }
     
