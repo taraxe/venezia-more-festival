@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0B572EEC-2A23-417D-A6B7-65BD046C2E24</string>
+	<key>IDESourceControlProjectName</key>
+	<string>More Festival</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
+		<string>bitbucket.org:taraxe_dev/morevenezia.git</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>github.com:Haneke/HanekeSwift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>More Festival.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</key>
+		<string>../..</string>
+		<key>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</key>
+		<string>../../../HanekeSwift</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>bitbucket.org:taraxe_dev/morevenezia.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HanekeSwift</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69EB7662FE649ED9A19B9C6E02210154D2E8CBE6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MoreFestivalApp.swift</string>
+		</dict>
+	</array>
+</dict>
+</plist>
