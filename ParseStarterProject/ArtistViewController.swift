@@ -28,9 +28,7 @@ class ArtistViewController: UIViewController {
     @IBOutlet weak var placeLabel: UIButton!
     @IBOutlet weak var soundcloudButton: UIButton!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     @IBAction func shareAction(sender: UIBarButtonItem) {
        
@@ -70,8 +68,10 @@ class ArtistViewController: UIViewController {
     }
     
     func updateUI(){
-        scrollView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
+        if let b = tabBarController?.tabBar.bounds {
+            println(b)
+            bottomConstraint?.constant = b.height + 20
+        }
         bioLabel?.attributedText = nil
         dateLabel?.attributedText = nil
         
@@ -127,15 +127,6 @@ class ArtistViewController: UIViewController {
                 println("Will hide button \(soundcloud)")
                 self.soundcloudButton?.hidden = true
             }
-            
-//            if let size = contentView?.frame.size {
-//                println("Content view size is \(contentView?.frame.size)")
-//                println("Scroll view size is \(scrollView?.frame.size)")
-//                println("Scroll view contentsize is \(scrollView?.contentSize)")
-//                scrollView?.contentSize = size
-//                println("Scroll view after contentsize is \(scrollView?.contentSize)")
-//            }
-
         }
         
     }
@@ -155,11 +146,6 @@ class ArtistViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
-//        let placeHolder = UIImageView(image: UIImage(named: "background"))
-//        placeHolder.frame = self.contentView.frame
-//        self.contentView?.addSubview(placeHolder)
-        
         updateUI()
     }
     
