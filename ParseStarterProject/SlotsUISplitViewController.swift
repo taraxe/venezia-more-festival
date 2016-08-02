@@ -11,14 +11,14 @@ import UIKit
 class SlotsUISplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         delegate = self
     }
     
     // MARK: - UISplitViewControllerDelegate
     
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? ArtistViewController {
@@ -31,9 +31,9 @@ class SlotsUISplitViewController: UISplitViewController, UISplitViewControllerDe
         return false
     }
     
-//    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
-//        return orientation == UIInterfaceOrientation.Portrait
-//    }
+    //    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+    //        return orientation == UIInterfaceOrientation.Portrait
+    //    }
     
-   
+    
 }

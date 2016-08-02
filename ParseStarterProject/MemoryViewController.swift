@@ -13,7 +13,7 @@ class MemoryViewController: UIViewController {
     let cache = Shared.imageCache
     
     @IBOutlet weak var imageView: UIImageView!
-
+    
     var image:Image? {
         didSet {
             updateUI()
@@ -24,7 +24,7 @@ class MemoryViewController: UIViewController {
         let text:String = "Check out this picture from Venezia More Festival"
         let url:NSURL = NSURL(string: "http://www.more-festival.com/")!
         let image:UIImage = imageView.image!
-            
+        
         let activityViewController = UIActivityViewController(activityItems: [text, image, url], applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
@@ -52,7 +52,7 @@ class MemoryViewController: UIViewController {
                     }
                     
                 } else {
-                    println("CANNOT CREATE URL : \(imageURL)")
+                    print("CANNOT CREATE URL : \(imageURL)")
                 }
             }
         }

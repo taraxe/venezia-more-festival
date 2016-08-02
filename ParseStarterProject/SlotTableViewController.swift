@@ -16,7 +16,7 @@ class SlotTableViewController: PFQueryTableViewController {
     var slots = [NSDate : [PFObject]]()
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         
         self.parseClassName = "Slot"
         self.pullToRefreshEnabled = true
@@ -26,7 +26,7 @@ class SlotTableViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-        var slotQuery = PFQuery(className:"Slot")
+        let slotQuery = PFQuery(className:"Slot")
         slotQuery.includeKey("artist_id")
         slotQuery.includeKey("stage_id")
         //slotQuery.fromLocalDatastore()
@@ -36,9 +36,9 @@ class SlotTableViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.
         //tableView.estimatedRowHeight = tableView.rowHeight
-//        tableView.rowHeight = 75 + 16
+        //        tableView.rowHeight = 75 + 16
     }
     
     
@@ -53,7 +53,7 @@ class SlotTableViewController: PFQueryTableViewController {
     }
     
     private func dateForSection(section:Int) -> NSDate {
-        let dates:[NSDate] = Array(slots.keys).sorted({ $0 < $1 })
+        let dates:[NSDate] = Array(slots.keys).sort({ $0 < $1 })
         return dates[section]
     }
     
@@ -61,14 +61,14 @@ class SlotTableViewController: PFQueryTableViewController {
         if let sectionSlots = slots[dateForSection(indexPath.section)] {
             return sectionSlots[indexPath.row]
         } else {
-         return nil
+            return nil
         }
     }
     
     override func objectsDidLoad(error: NSError!) {
         super.objectsDidLoad(error)
         if let os = objects {
-            println( "\(os.count) received from Parse" )
+            print( "\(os.count) received from Parse" )
             
             let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
             slots.removeAll(keepCapacity: false)
@@ -82,19 +82,19 @@ class SlotTableViewController: PFQueryTableViewController {
                 if let prev = slots[day] { slots[day] = prev + [slot] }
                 else { slots[day] = [slot] }
             }
-            println( "\(slots.count) after filtering" )
+            print( "\(slots.count) after filtering" )
             tableView.reloadData()
             
-
-//            if(!isInitialized){
-//                isInitialized = true;
-//                let currentSection = 1
-//                let currentRow = 2
-//                
-//                let indexPath = NSIndexPath(forItem: currentRow, inSection: currentSection)
-//                tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
-//                
-//          }
+            
+            //            if(!isInitialized){
+            //                isInitialized = true;
+            //                let currentSection = 1
+            //                let currentRow = 2
+            //                
+            //                let indexPath = NSIndexPath(forItem: currentRow, inSection: currentSection)
+            //                tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+            //                
+            //          }
         }
     }
     
@@ -104,13 +104,13 @@ class SlotTableViewController: PFQueryTableViewController {
         formatter.locale = Constants.appLocale
         formatter.dateFormat = "EEE, d MMM"
         let sectionDate = dateForSection(section)
-        println("For section \(section), date is \(sectionDate)")
+        print("For section \(section), date is \(sectionDate)")
         headerCell.headerLabel.text = formatter.stringFromDate(sectionDate);
         headerCell.headerLabel.textColor = UIColor.whiteColor()
         headerCell.backgroundColor = UIColor.blackColor()
         return headerCell
     }
-
+    
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView(frame: CGRectZero)
     }
@@ -142,7 +142,7 @@ class SlotTableViewController: PFQueryTableViewController {
             switch identifier {
             case "ShowArtist":
                 let cell = sender as! SlotTableViewCell
-                if let indexPath = tableView.indexPathForCell(cell) {
+                if tableView.indexPathForCell(cell) != nil {
                     artistViewController.object = cell.object
                 }
             default:
@@ -154,7 +154,7 @@ class SlotTableViewController: PFQueryTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         collapseDetailViewController = false
     }
-
+    
 }
 public func <(a: NSDate, b: NSDate) -> Bool {
     return a.compare(b) == NSComparisonResult.OrderedAscending

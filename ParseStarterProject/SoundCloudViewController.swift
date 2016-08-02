@@ -21,13 +21,13 @@ class SoundCloudViewController: UIViewController {
         PFConfig.getConfigInBackgroundWithBlock {
             (var config: PFConfig?, error: NSError?) -> Void in
             if error == nil {
-                println("Yay! Config was fetched from the server.")
+                print("Yay! Config was fetched from the server.")
             } else {
-                println("Failed to fetch. Using Cached Config.")
+                print("Failed to fetch. Using Cached Config.")
                 config = PFConfig.currentConfig()
             }
             
-            var url = config?["playlist_soundcloud_url"] as? String
+            let url = config?["playlist_soundcloud_url"] as? String
 
             let webURL = NSURL(string: "https://w.soundcloud.com/player/?url=\(url!.encodeURL())&amp;hide_related=true&amp;show_comments=false&amp;show_reposts=false&amp;visual=true")
             let urlRequest = NSURLRequest(URL: webURL!)

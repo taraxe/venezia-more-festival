@@ -25,7 +25,7 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
     
     var allPictures: [Picture]? {
         didSet {
-//
+            //
         }
     }
     
@@ -34,16 +34,16 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
         //reset
         self.spinner?.startAnimating()
         self.pictureImageView?.image = nil
-            
+        
         if let pic = picture {
-                
+            
             let imageURL = WeServ.proxy(pic.small)
             if let url = NSURL(string: imageURL) {
                 let fetcher = NetworkFetcher<UIImage>(URL: url)
                 //self.artistImageView.hnk_setImageFromURL(wrapped)
                 cache.fetch(fetcher: fetcher).onSuccess { image in
                     
-                    self.spinner?.stopAnimating
+                    self.spinner?.stopAnimating()
                     
                     UIView.transitionWithView(self.pictureImageView,
                         duration:0.3,
@@ -54,18 +54,18 @@ class MemoriesCollectionViewCell: UICollectionViewCell {
                 }
                 
             } else {
-                println("CANNOT CREATE URL : \(imageURL)")
+                print("CANNOT CREATE URL : \(imageURL)")
             }
         }
-        self.spinner?.stopAnimating
+        self.spinner?.stopAnimating()
     }
     
     override func prepareForReuse() {
         self.pictureImageView?.hnk_cancelSetImage()
         self.pictureImageView?.image = nil
         self.picture = nil
-//        self.spinner?.startAnimating()
+        //        self.spinner?.startAnimating()
     }
-
+    
     
 }

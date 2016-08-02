@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "69EB7662FE649ED9A19B9C6E02210154D2E8CBE6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "69EB7662FE649ED9A19B9C6E02210154D2E8CBE6" : 0,
+    "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B572EEC-2A23-417D-A6B7-65BD046C2E24",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "69EB7662FE649ED9A19B9C6E02210154D2E8CBE6" : "MoreFestivalApp.swift",
+    "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F" : "HanekeSwift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "More Festival",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "More Festival.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:taraxe_dev\/morevenezia.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "69EB7662FE649ED9A19B9C6E02210154D2E8CBE6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Haneke\/HanekeSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C93564C1AFB8B50FF58188F21182F5D0EEAD1C3F"
+    }
+  ]
+}

@@ -53,10 +53,10 @@ class SlotTableViewCell: PFTableViewCell {
                 }
                 
             } else {
-                println("CANNOT CREATE URL : \(imageURL)")
+                print("CANNOT CREATE URL : \(imageURL)")
             }
             
-
+            
             let formatter = NSDateFormatter()
             formatter.locale = Constants.appLocale
             formatter.dateFormat = "hh:mm a"
@@ -64,10 +64,10 @@ class SlotTableViewCell: PFTableViewCell {
             
             timeLabel?.text = "\(formatter.stringFromDate(start)) - \(formatter.stringFromDate(end))"
             
-    
+            
             artistNameLabel?.text = artist["name"] as? String
         }
-
+        
         
     }
     

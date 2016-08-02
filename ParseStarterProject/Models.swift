@@ -14,13 +14,6 @@ struct Slot {
     let end:NSDate
     let artist:Artist
     let place:Place
-    
-    init(artist:Artist, place:Place, start:NSDate, end:NSDate) {
-        self.artist = artist
-        self.place = place
-        self.start = start
-        self.end = end
-    }
 }
 
 struct Artist {
@@ -39,12 +32,6 @@ struct Place {
     let location:(Float, Float)
     let name:String
     let address:String
-    
-    init(name:String, location:(Float, Float), address:String) {
-        self.location = location
-        self.name = name
-        self.address = address
-    }
 }
 
 struct Picture {
@@ -121,7 +108,7 @@ class WeServ {
     }
     
     static func proxy(url:String, height:Int? = nil, width:Int? = nil) -> String {
-        var encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").encodeURL()
+        let encodedURL = url.replace("^https?:\\/\\/(.*)$", template : "$1").encodeURL()
         var out = "http://images.weserv.nl/?url=\(encodedURL)"
         if let h = height {
             out += "&h=\(h)"
@@ -129,7 +116,7 @@ class WeServ {
         if let w = width {
             out += "&w=\(w)"
         }
-        println(out)
+        print(out)
         return out
     }
     
